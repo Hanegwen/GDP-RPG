@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
 
         for (int i = 0; i < playerCount; i++)
         {
-            players[i] = Instantiate(players[1]);
+            players[i] = Instantiate(players[i]);
         }
 
     }
