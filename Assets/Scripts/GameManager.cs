@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     int playerCount; //base 1
     [SerializeField]
-    Players[] players; //Current Player Count make 2 in Engine
+    Player[] players; //Current Player Count make 2 in Engine
 
 
     public int currentPlayer; //base 1
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour {
 
     void CheckDeath()
     {
-        foreach (Players player in players)
+        foreach (Player player in players)
         {
             if(player.Dead)
             {

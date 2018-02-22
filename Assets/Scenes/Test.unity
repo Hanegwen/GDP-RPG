@@ -216,10 +216,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackNum: 0
-  playerCount: 1
+  playerCount: 2
   players:
-  - {fileID: 114013771303323798, guid: 032ed6a753e2b4d4fb7fef1b1c5563c3, type: 2}
-  - {fileID: 114013771303323798, guid: 032ed6a753e2b4d4fb7fef1b1c5563c3, type: 2}
+  - {fileID: 114351432745181952, guid: 032ed6a753e2b4d4fb7fef1b1c5563c3, type: 2}
+  - {fileID: 114351432745181952, guid: 032ed6a753e2b4d4fb7fef1b1c5563c3, type: 2}
   currentPlayer: 1
   attack: 0
 --- !u!1 &2138689612
