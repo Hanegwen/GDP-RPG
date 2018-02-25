@@ -19,11 +19,15 @@ public class Player : MonoBehaviour {
 
     int attackNum;
 
+    int attack2Num; //Negative Effect
+
     bool dead = false;
 
     int damage = 0;
 
     public Canvas myCanvas;
+
+    public Canvas NegativeCanvas;
 
     public bool Dead
     {
@@ -66,24 +70,52 @@ public class Player : MonoBehaviour {
     public void OnAttack1Click()
     {
         attackNum = 0;
-        canAttack = true;
+        NegativeCanvas.enabled = true;
+        
     }
 
     public void OnAttack2Click()
     {
         attackNum = 1;
-        canAttack = true;
+        NegativeCanvas.enabled = true;
+
     }
 
     public void OnAttack3Click()
     {
         attackNum = 2;
-        canAttack = true;
+        NegativeCanvas.enabled = true;
+
     }
 
     public void OnAttack4Click()
     {
         attackNum = 3;
+        NegativeCanvas.enabled = true;
+
+    }
+
+    public void OnAttack2Click1()
+    {
+        attack2Num = 0;
+        canAttack = true;
+    }
+
+    public void OnAttack2Click2()
+    {
+        attack2Num = 1;
+        canAttack = true;
+    }
+
+    public void OnAttack2Click3()
+    {
+        attack2Num = 2;
+        canAttack = true;
+    }
+
+    public void OnAttack2Click4()
+    {
+        attack2Num = 3;
         canAttack = true;
     }
 }

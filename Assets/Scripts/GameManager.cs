@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 public class GameManager : MonoBehaviour {
 
+    [SerializeField]
+    Canvas DeathCanvas;
 
     [SerializeField]
     int attackNum = 0; //base 0
@@ -13,6 +16,11 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     Player[] players; //Current Player Count make 2 in Engine
 
+    [SerializeField]
+    GameObject[] playerImages;
+
+
+    GameObject activePlayer;
 
     public int currentPlayer; //base 1
 
@@ -29,6 +37,7 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < playerCount; i++)
         {
             players[i] = Instantiate(players[i]);
+            playerImages[i] = Instantiate(playerImages[i]);
         }
 
     }
@@ -46,6 +55,8 @@ public class GameManager : MonoBehaviour {
     void CombatSystem()
     {
         players[currentPlayer - 1].myCanvas.enabled = true;
+        playerImages[currentPlayer - 1].SetActive(true);
+        activePlayer = playerImages[currentPlayer - 1];
         attackNum = players[currentPlayer - 1].ReturnAttack();
 
         if (attack)
@@ -71,6 +82,7 @@ public class GameManager : MonoBehaviour {
     void NextPlayer()
     {
         players[currentPlayer - 1].myCanvas.enabled = false;
+        playerImages[currentPlayer - 1].SetActive(false);
         currentPlayer++;
 
         if (currentPlayer > playerCount)
@@ -93,7 +105,7 @@ public class GameManager : MonoBehaviour {
 
     void GameOver()
     {
-        //call GameOver Canvas
+        DeathCanvas.enabled = true;
     }
 
     
