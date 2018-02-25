@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -98,13 +99,14 @@ public class GameManager : MonoBehaviour {
         {
             if(player.Dead)
             {
-                GameOver();
+                GameOver(player.name);
             }
         }
     }
 
-    void GameOver()
+    void GameOver(string playerName)
     {
+        DeathCanvas.transform.GetComponentInChildren<Text>().text = playerName + " has died";
         DeathCanvas.enabled = true;
     }
 

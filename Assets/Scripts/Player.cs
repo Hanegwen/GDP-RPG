@@ -70,28 +70,28 @@ public class Player : MonoBehaviour {
     public void OnAttack1Click()
     {
         attackNum = 0;
-        NegativeCanvas.enabled = true;
+        //NegativeCanvas.enabled = true;
         
     }
 
     public void OnAttack2Click()
     {
         attackNum = 1;
-        NegativeCanvas.enabled = true;
+        //NegativeCanvas.enabled = true;
 
     }
 
     public void OnAttack3Click()
     {
         attackNum = 2;
-        NegativeCanvas.enabled = true;
+        //NegativeCanvas.enabled = true;
 
     }
 
     public void OnAttack4Click()
     {
         attackNum = 3;
-        NegativeCanvas.enabled = true;
+        //NegativeCanvas.enabled = true;
 
     }
 
