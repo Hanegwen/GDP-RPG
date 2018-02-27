@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour {
         {
             players[i] = Instantiate(players[i]);
             playerImages[i] = Instantiate(playerImages[i]);
+            playerImages[i].SetActive(false);
         }
 
     }

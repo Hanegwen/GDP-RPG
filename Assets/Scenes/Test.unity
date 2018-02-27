@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c4f82dad18a184793b43ff2286a8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeathCanvas: {fileID: 77148650}
+  DeathCanvas: {fileID: 0}
   attackNum: 0
   playerCount: 2
   players:

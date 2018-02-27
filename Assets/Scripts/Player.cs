@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 
     public Canvas myCanvas;
 
-    public Canvas NegativeCanvas;
+    public GameObject PositiveButtons;
 
     public bool Dead
     {
@@ -70,52 +70,63 @@ public class Player : MonoBehaviour {
     public void OnAttack1Click()
     {
         attackNum = 0;
-        //NegativeCanvas.enabled = true;
-        
+        PositiveButtons.SetActive(false);
+        //myCanvas.enabled = false;
+        //canAttack = true; //Only Temp
+
     }
 
     public void OnAttack2Click()
     {
         attackNum = 1;
-        //NegativeCanvas.enabled = true;
+        PositiveButtons.SetActive(false);
+        //myCanvas.enabled = false;
+        //canAttack = true; //Only Temp
 
     }
 
     public void OnAttack3Click()
     {
         attackNum = 2;
-        //NegativeCanvas.enabled = true;
+        PositiveButtons.SetActive(false);
+        //myCanvas.enabled = false;
+        //canAttack = true; //Only Temp
 
     }
 
     public void OnAttack4Click()
     {
         attackNum = 3;
-        //NegativeCanvas.enabled = true;
-
+        PositiveButtons.SetActive(false);
+        //myCanvas.enabled = false;
+        //canAttack = true; //Only Temp
     }
 
     public void OnAttack2Click1()
     {
         attack2Num = 0;
+        PositiveButtons.SetActive(true);
         canAttack = true;
     }
 
     public void OnAttack2Click2()
     {
         attack2Num = 1;
+        PositiveButtons.SetActive(true);
         canAttack = true;
     }
 
     public void OnAttack2Click3()
     {
         attack2Num = 2;
+        PositiveButtons.SetActive(true);
         canAttack = true;
     }
 
     public void OnAttack2Click4()
     {
         attack2Num = 3;
+        PositiveButtons.SetActive(true);
         canAttack = true;
     }
 }
