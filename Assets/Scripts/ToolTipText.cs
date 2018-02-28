@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ToolTipText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ToolTipText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField]
     GameObject toolTip;     //the tool tip gameObject
@@ -40,5 +40,10 @@ public class ToolTipText : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         isPointerEntered = false;
         Destroy(toolTipObject, toolTipDelay);   //let the tool tip stay for a bit then destroy it
+    }
+
+    public void OnPointerClick(PointerEventData eventData)  //when the mouse is clicked
+    {
+        Destroy(toolTipObject); //destroy tool tip on click so it doesn't stay there when the next set of buttons appears
     }
 }
