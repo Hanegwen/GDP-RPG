@@ -1000,7 +1000,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114351432745181952}
-        m_MethodName: OnAttack2Click
+        m_MethodName: OnAttack2Click1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
