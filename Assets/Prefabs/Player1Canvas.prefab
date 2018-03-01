@@ -952,10 +952,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803a2b8ef58054f4d8079017f60ec79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
-  Damage: 0
-  Armor: 0
-  Healing: 0
+  Health: 100
+  Damage: 20
+  Armor: 10
+  Healing: 15
   currentAttack: 0
   canAttack: 0
   myCanvas: {fileID: 223491528266893306}
