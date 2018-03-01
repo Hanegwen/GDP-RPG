@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
     {
         playerCount = players.Length;
 
-        for (int i = 0; i < playerCount; i++)
+        for (int i = 0; i < playerCount; i++) //On Start the Players are created
         {
             players[i] = Instantiate(players[i]);
             playerImages[i] = Instantiate(playerImages[i]);
@@ -48,40 +48,39 @@ public class GameManager : MonoBehaviour {
 	void Update ()
     {
         attack = players[currentPlayer - 1].canAttack;
-
         CombatSystem();
         CheckDeath();
         
 	}
 
-    void CombatSystem()
+    void CombatSystem() //How the Players attack
     {
-        players[currentPlayer - 1].myCanvas.enabled = true;
-        playerImages[currentPlayer - 1].SetActive(true);
+        players[currentPlayer - 1].myCanvas.enabled = true; //Current Players Menu System
+        playerImages[currentPlayer - 1].SetActive(true); //Current Players Avatar
         activePlayer = playerImages[currentPlayer - 1];
-        attackNum = players[currentPlayer - 1].ReturnAttack();
+        attackNum = players[currentPlayer - 1].ReturnAttack(); //Keeps track of attack numbers
 
-        if (attack)
+        if (attack) //When Player clicks a button the attack goes through
         {
-            attackDamage = players[currentPlayer - 1].Attack(attackNum);
-            if(currentPlayer + 1 > playerCount)
+            attackDamage = players[currentPlayer - 1].Attack(attackNum); //The attack amount
+            if(currentPlayer + 1 > playerCount) //Checks if next player is past array and then sets him to 0 in case
             {
                 players[0].TakeDamage(attackDamage);
             }
 
-            else
+            else //Deals damage to the next player
             {
                 players[currentPlayer].TakeDamage(attackDamage);
             }
 
-            players[currentPlayer - 1].canAttack = false;
+            players[currentPlayer - 1].canAttack = false; // Stops attacking
 
-            NextPlayer();
+            NextPlayer(); //Calls the next player
         }
 
     }
 
-    void NextPlayer()
+    void NextPlayer() //When a Player attacks the next player in the list becomes the active player
     {
         players[currentPlayer - 1].myCanvas.enabled = false;
         playerImages[currentPlayer - 1].SetActive(false);
@@ -94,7 +93,7 @@ public class GameManager : MonoBehaviour {
         players[currentPlayer - 1].myCanvas.enabled = true;
     }
 
-    void CheckDeath()
+    void CheckDeath() //Check if a player is dead, if so other person wins
     {
         foreach (Player player in players)
         {
@@ -105,7 +104,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void GameOver(string playerName)
+    void GameOver(string playerName) //Calls the end screen
     {
         DeathCanvas.transform.GetComponentInChildren<Text>().text = playerName + " has died";
         DeathCanvas.enabled = true;
