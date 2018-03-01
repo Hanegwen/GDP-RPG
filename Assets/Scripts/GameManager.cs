@@ -57,6 +57,16 @@ public class GameManager : MonoBehaviour {
     {
         players[currentPlayer - 1].myCanvas.enabled = true; //Current Players Menu System
         playerImages[currentPlayer - 1].SetActive(true); //Current Players Avatar
+
+        //X = 8
+
+        //playerImages[currentPlayer - 1].transform.position = new Vector2(0,this.transform.position);
+
+        //playerImages[0}.transform.position = new Vector(8. this.transform.position);
+
+        //playerImages[currentPlayer].transform.position = new Vector2(8,this.tranform.position.y);
+
+
         activePlayer = playerImages[currentPlayer - 1];
         attackNum = players[currentPlayer - 1].ReturnAttack(); //Keeps track of attack numbers
 
