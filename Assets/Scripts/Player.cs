@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
+
+    [SerializeField]
+    Text playerNumberText;
+
     [SerializeField]
     public int Health;
     [SerializeField]
@@ -29,6 +34,8 @@ public class Player : MonoBehaviour {
 
     public GameObject PositiveButtons;
 
+    public int myPlayerNumber;
+
     public bool Dead
     {
         get
@@ -41,13 +48,14 @@ public class Player : MonoBehaviour {
     void Start()
     {
         myCanvas.enabled = false;
-        
+        playerNumberText.text ="Player: " + myPlayerNumber.ToString();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        
 
     }
 

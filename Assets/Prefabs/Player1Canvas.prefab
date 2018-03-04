@@ -952,6 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803a2b8ef58054f4d8079017f60ec79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumberText: {fileID: 114060700508079876}
   Health: 100
   Damage: 20
   Armor: 10
@@ -960,6 +961,7 @@ MonoBehaviour:
   canAttack: 0
   myCanvas: {fileID: 223491528266893306}
   PositiveButtons: {fileID: 1414594824601042}
+  myPlayerNumber: 0
 --- !u!114 &114427344408169408
 MonoBehaviour:
   m_ObjectHideFlags: 1
