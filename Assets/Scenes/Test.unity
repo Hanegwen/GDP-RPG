@@ -416,7 +416,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Lose
+  m_Text: You Loose
 --- !u!222 &1101506696
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -38,8 +38,9 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < playerCount; i++) //On Start the Players are created
         {
             players[i] = Instantiate(players[i]);
+            players[i].myPlayerNumber = i + 1;
             playerImages[i] = Instantiate(playerImages[i]);
-            playerImages[i].SetActive(false);
+            //playerImages[i].SetActive(false);
         }
 
     }
@@ -53,19 +54,30 @@ public class GameManager : MonoBehaviour {
         
 	}
 
+    void MoveImage()
+    {
+        playerImages[currentPlayer - 1].gameObject.transform.position = new Vector2(0,0);
+        playerImages[currentPlayer - 1].gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        if (currentPlayer == playerCount)
+        {
+            Debug.Log("Calling 0");
+            playerImages[0].gameObject.transform.position = new Vector2(2, 0);
+            playerImages[0].gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            Debug.Log("Calling The Position");
+            playerImages[currentPlayer].gameObject.transform.position = new Vector2(2, 0);
+            playerImages[currentPlayer].gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+    }
+
     void CombatSystem() //How the Players attack
     {
         players[currentPlayer - 1].myCanvas.enabled = true; //Current Players Menu System
         playerImages[currentPlayer - 1].SetActive(true); //Current Players Avatar
 
-        //X = 8
-
-        //playerImages[currentPlayer - 1].transform.position = new Vector2(0,this.transform.position);
-
-        //playerImages[0}.transform.position = new Vector(8. this.transform.position);
-
-        //playerImages[currentPlayer].transform.position = new Vector2(8,this.tranform.position.y);
-
+        MoveImage();
 
         activePlayer = playerImages[currentPlayer - 1];
         attackNum = players[currentPlayer - 1].ReturnAttack(); //Keeps track of attack numbers
@@ -93,7 +105,7 @@ public class GameManager : MonoBehaviour {
     void NextPlayer() //When a Player attacks the next player in the list becomes the active player
     {
         players[currentPlayer - 1].myCanvas.enabled = false;
-        playerImages[currentPlayer - 1].SetActive(false);
+        //playerImages[currentPlayer - 1].SetActive(false);
         currentPlayer++;
 
         if (currentPlayer > playerCount)

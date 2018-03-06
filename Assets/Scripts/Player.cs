@@ -48,15 +48,15 @@ public class Player : MonoBehaviour {
     void Start()
     {
         myCanvas.enabled = false;
-        playerNumberText.text ="Player: " + myPlayerNumber.ToString();
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
 
+        playerNumberText.text = "Player: " + myPlayerNumber.ToString();
     }
 
     public void TakeDamage(float damage)
