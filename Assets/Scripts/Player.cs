@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
 
     int attack2Num; //Negative Effect
 
-    bool dead = false;
+    public bool dead = false;
 
     int damage = 0;
 
@@ -57,11 +57,15 @@ public class Player : MonoBehaviour {
     {
 
         playerNumberText.text = "Player: " + myPlayerNumber.ToString();
+        if(Health <= 0)
+        {
+            dead = true;
+        }
     }
 
     public void TakeDamage(float damage)
     {
-
+        Health -= (int)damage;
     }
 
     public float Attack(int attackValue)
