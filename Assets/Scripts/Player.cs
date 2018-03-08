@@ -8,6 +8,8 @@ public class Player : MonoBehaviour {
     [SerializeField]
     Text playerNumberText;
 
+    public Slider Health_Slider;
+
     [SerializeField]
     public int Health;
     [SerializeField]
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour {
     void Start()
     {
         myCanvas.enabled = false;
-        
+        GetComponent<Slider>();
 
     }
 
@@ -61,6 +63,13 @@ public class Player : MonoBehaviour {
         {
             dead = true;
         }
+
+        SetHealthUI();
+    }
+
+    private void SetHealthUI()
+    {
+        Health_Slider.value = Health;
     }
 
     public void TakeDamage(float damage)
