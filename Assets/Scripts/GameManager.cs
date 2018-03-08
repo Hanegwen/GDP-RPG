@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour {
 
     public void PickImage()
     {
-        playerImages[playerChoosing] = imageOptions[currentImage];
+        playerImages[playerChoosing].GetComponent<Sprite>() = imageOptions[currentImage];
 
         playerChoosing++;
     }
