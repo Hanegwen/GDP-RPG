@@ -22,7 +22,9 @@ public class GameManager : MonoBehaviour {
     GameObject[] playerImages;
 
     [SerializeField]
-    GameObject[] imageOptions;
+    Sprite[] imageOptions;
+
+    
 
     int currentImage = 0;
 
