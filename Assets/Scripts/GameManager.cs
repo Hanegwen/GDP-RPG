@@ -14,11 +14,24 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     int playerCount; //base 1
+    
     [SerializeField]
     Player[] players; //Current Player Count make 2 in Engine
 
     [SerializeField]
     GameObject[] playerImages;
+
+    [SerializeField]
+    Sprite[] imageOptions;
+
+    
+
+    int currentImage = 0;
+
+    int playerChoosing = 0;
+
+    [SerializeField]
+    Transform imageLocation;
 
 
     GameObject activePlayer;
@@ -30,8 +43,13 @@ public class GameManager : MonoBehaviour {
 
     float attackDamage;
 
-	// Use this for initialization
-	void Start ()
+    [SerializeField]
+    Text playerNumber;
+
+    bool choosingState = true;
+
+    // Use this for initialization
+    void Start ()
     {
         playerCount = players.Length;
 
@@ -48,11 +66,43 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        attack = players[currentPlayer - 1].canAttack;
-        CombatSystem();
-        CheckDeath();
+        if (choosingState)
+        {
+            ChoosingUI();
+        }
+
+        if (!choosingState)
+        {
+            attack = players[currentPlayer - 1].canAttack;
+            CombatSystem();
+            CheckDeath();
+        }
         
 	}
+
+    void ChoosingUI()
+    {
+
+    }
+
+    public void PickImage()
+    {
+        playerImages[playerChoosing].GetComponent<Sprite>() = imageOptions[currentImage];
+
+        playerChoosing++;
+    }
+
+    public void NextButton()
+    {
+        imageOptions[currentImage].SetActive(false);
+        currentImage++;
+        if (currentImage > playerImages.Length)
+        {
+            currentImage = 0;
+        }
+        imageOptions[currentImage].SetActive(true);
+        
+    }
 
     void MoveImage()
     {
