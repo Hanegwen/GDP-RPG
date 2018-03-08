@@ -14,11 +14,20 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     int playerCount; //base 1
+    
     [SerializeField]
     Player[] players; //Current Player Count make 2 in Engine
 
     [SerializeField]
     GameObject[] playerImages;
+
+    [SerializeField]
+    GameObject[] imageOptions;
+
+    int currentImage = 0;
+
+    [SerializeField]
+    Transform imageLocation;
 
 
     GameObject activePlayer;
@@ -53,6 +62,24 @@ public class GameManager : MonoBehaviour {
         CheckDeath();
         
 	}
+
+    void PickImage()
+    {
+
+    }
+
+    public void NextButton()
+    {
+        
+        currentImage++;
+        var currentImageImage = Instantiate(playerImages[currentImage], imageLocation);
+        Destroy(currentImageImage);
+        if (currentImage > playerImages.Length)
+        {
+            currentImage = 0;
+        }
+        
+    }
 
     void MoveImage()
     {
