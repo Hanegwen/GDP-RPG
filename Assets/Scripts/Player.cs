@@ -60,6 +60,7 @@ public class Player : MonoBehaviour {
 
         playerNumberText.text = "Player: " + myPlayerNumber.ToString();
 <<<<<<< HEAD
+<<<<<<< HEAD
         if(Health <= 0)
         {
             dead = true;
@@ -71,6 +72,8 @@ public class Player : MonoBehaviour {
     private void SetHealthUI()
     {
         Health_Slider.value = Health;
+=======
+>>>>>>> parent of 925f559... Done W/ This Week Stuff
 =======
 >>>>>>> parent of 925f559... Done W/ This Week Stuff
     }
