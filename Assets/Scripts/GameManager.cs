@@ -135,8 +135,6 @@ public class GameManager : MonoBehaviour {
         if (attack) //When Player clicks a button the attack goes through
         {
             attackDamage = players[currentPlayer - 1].Attack(attackNum); //The attack amount
-            attackDamage = 10; //Shows Combat Example working
-            Debug.Log(attackDamage);
             if(currentPlayer + 1 > playerCount) //Checks if next player is past array and then sets him to 0 in case
             {
                 players[0].TakeDamage(attackDamage);
