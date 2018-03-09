@@ -558,7 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 615802403}
   - component: {fileID: 615802405}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +571,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 615802402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -972,6 +972,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1516378834}
+  - component: {fileID: 1516378836}
   - component: {fileID: 1516378835}
   m_Layer: 0
   m_Name: GameManager
@@ -1001,29 +1002,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1516378833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68c4f82dad18a184793b43ff2286a8c9, type: 3}
+  m_Script: {fileID: 11500000, guid: cd191c8d9c144304db80de80fdf69291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeathCanvas: {fileID: 0}
-  attackNum: 0
+  playerImages:
+  - {fileID: 0}
+  - {fileID: 0}
   playerCount: 2
   players:
   - {fileID: 114351432745181952, guid: 032ed6a753e2b4d4fb7fef1b1c5563c3, type: 2}
   - {fileID: 114351432745181952, guid: 032ed6a753e2b4d4fb7fef1b1c5563c3, type: 2}
-  playerImages:
-  - {fileID: 0}
-  - {fileID: 0}
   imageOptions:
   - {fileID: 1622604223461932, guid: 65a39f0c6d3622e41b124d4021b9c233, type: 2}
   - {fileID: 1514297060822302, guid: 5fa59604de9306446aec49cd526d2bac, type: 2}
-  - {fileID: 1236305243907856, guid: de789a175e9914a43b298d4d0880d946, type: 2}
+  - {fileID: 1049079023548382, guid: bd7522b4f360035438a50fac9e7d3edd, type: 2}
   - {fileID: 1236305243907856, guid: de789a175e9914a43b298d4d0880d946, type: 2}
   - {fileID: 1295550809043898, guid: ccf6066cee1cfb6478568dde074ce12e, type: 2}
   imageLocation: {fileID: 615802403}
-  currentPlayer: 1
-  attack: 0
-  playerNumber: {fileID: 423544310}
+  DeathCanvas: {fileID: 77148650}
   playerSelectCanvas: {fileID: 1178913942}
+  playerNumber: {fileID: 423544310}
+--- !u!114 &1516378836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1516378833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6e006a558ff3244b6505b8176b17a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: 0
+  attackNum: 0
+  currentPlayer: 1
 --- !u!1 &2030919004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,7 +1285,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
