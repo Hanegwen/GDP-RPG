@@ -18,11 +18,11 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     Player[] players; //Current Player Count make 2 in Engine
 
-    [SerializeField]
-    GameObject[] playerImages;
+    
+    public GameObject[] playerImages = new GameObject[2];
 
     [SerializeField]
-    Sprite[] imageOptions;
+    GameObject[] imageOptions;
 
     
 
@@ -48,19 +48,20 @@ public class GameManager : MonoBehaviour {
 
     bool choosingState = true;
 
+    [SerializeField]
+    Canvas playerSelectCanvas;
+
     // Use this for initialization
     void Start ()
     {
         playerCount = players.Length;
 
-        for (int i = 0; i < playerCount; i++) //On Start the Players are created
+        foreach(GameObject o in imageOptions)
         {
-            players[i] = Instantiate(players[i]);
-            players[i].myPlayerNumber = i + 1;
-            playerImages[i] = Instantiate(playerImages[i]);
-            //playerImages[i].SetActive(false);
+            Instantiate(o, imageLocation);
         }
 
+        
     }
 	
 	// Update is called once per frame
@@ -82,14 +83,29 @@ public class GameManager : MonoBehaviour {
 
     void ChoosingUI()
     {
-
+        playerNumber.text = "Player" + (playerChoosing + 1);
     }
 
     public void PickImage()
     {
-        playerImages[playerChoosing].GetComponent<Sprite>() = imageOptions[currentImage];
+        playerImages[playerChoosing] = imageOptions[currentImage];
 
         playerChoosing++;
+
+        if(playerChoosing > 1)
+        {
+            for (int i = 0; i < playerCount; i++) //On Start the Players are created
+            {
+                players[i] = Instantiate(players[i]);
+                players[i].myPlayerNumber = i + 1;
+                playerImages[i] = Instantiate(playerImages[i]);
+                //playerImages[i].SetActive(false);
+                
+            }
+            playerSelectCanvas.enabled = false;
+            choosingState = false;
+        }
+        
     }
 
     public void NextButton()
