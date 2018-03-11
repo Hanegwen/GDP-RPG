@@ -44,9 +44,13 @@ public class UIManager : MonoBehaviour
 
         foreach (GameObject o in imageOptions)
         {
-            Instantiate(o, imageLocation.transform.position,Quaternion.identity, null);
+            //Instantiate(o, imageLocation.transform.position,Quaternion.identity, null);
+            //Instantiate(o, imageLocation);
+            o.GetComponent<SpriteRenderer>().enabled = false;
             o.transform.SetAsFirstSibling();
         }
+
+        imageOptions[0].GetComponent<SpriteRenderer>().enabled = true;
     }
 	
 	// Update is called once per frame
@@ -86,24 +90,37 @@ public class UIManager : MonoBehaviour
                 players[i] = Instantiate(players[i]);
                 players[i].myPlayerNumber = i + 1;
                 playerImages[i] = Instantiate(playerImages[i]);
+                playerImages[i].GetComponent<SpriteRenderer>().enabled = true;
                 //playerImages[i].SetActive(false);
 
             }
             playerSelectCanvas.enabled = false;
             choosingState = false;
+
+
+            foreach (GameObject o in imageOptions)
+            {
+                //Instantiate(o, imageLocation.transform.position,Quaternion.identity, null);
+                //Instantiate(o, imageLocation);
+                o.GetComponent<SpriteRenderer>().enabled = false;
+                o.transform.SetAsFirstSibling();
+            }
         }
 
     }
 
     public void NextButton()
     {
-        imageOptions[currentImage].SetActive(false);
+        
+
+        imageOptions[currentImage].GetComponent<SpriteRenderer>().enabled = false;
         currentImage++;
-        if (currentImage > playerImages.Length)
+        if (currentImage >= imageOptions.Length)
         {
             currentImage = 0;
         }
-        imageOptions[currentImage].SetActive(true);
+        imageOptions[currentImage].GetComponent<SpriteRenderer>().enabled = true;
+
 
     }
 
