@@ -7,6 +7,8 @@ public class Player : MonoBehaviour {
 
     [SerializeField]
     Text playerNumberText;
+    [SerializeField]
+    Text gameOverText;
 
     public Slider Health_Slider;
 
@@ -63,6 +65,8 @@ public class Player : MonoBehaviour {
         if(Health <= 0)
         {
             dead = true;
+
+            gameOverText.gameObject.SetActive(true);
         }
 
         SetHealthUI();
