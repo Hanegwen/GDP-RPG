@@ -33,7 +33,8 @@ public class CombatManager : MonoBehaviour
 
     void MoveImage()
     {
-        uiManager.playerImages[currentPlayer - 1].gameObject.transform.position = new Vector2(0, 0);
+        uiManager.playerImages[currentPlayer - 1].gameObject.transform.SetParent(uiManager.players[currentPlayer - 1].myCanvas.gameObject.transform);
+        uiManager.playerImages[currentPlayer - 1].gameObject.transform.localPosition = new Vector2(0, 0);
         uiManager.playerImages[currentPlayer - 1].gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         if (currentPlayer == uiManager.playerCount)
         {
